@@ -1,0 +1,298 @@
+<style>
+		/* ------------------------------------------------- */
+		body{
+			font-family: Arial, Helvetica;
+			font-size: small;
+			background: #444;
+		}
+
+		#tabs {
+		  overflow: hidden;
+		  width: 100%;
+		  margin: 0;
+		  padding: 0;
+		  list-style: none;
+		}
+
+		#tabs li {
+		  float: left;
+		  margin: 0 .5em 0 0;
+		}
+
+		#tabs a {
+		  position: relative;
+		  background: #ddd;
+		  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+		  background-image: -webkit-linear-gradient(top, #fff, #ddd);
+		  background-image: -moz-linear-gradient(top, #fff, #ddd);
+		  background-image: -ms-linear-gradient(top, #fff, #ddd);
+		  background-image: -o-linear-gradient(top, #fff, #ddd);
+		  background-image: linear-gradient(to bottom, #fff, #ddd);  
+		  padding: .7em 3.5em;
+		  float: left;
+		  text-decoration: none;
+		  color: #444;
+		  text-shadow: 0 1px 0 rgba(255,255,255,.8);
+		  -webkit-border-radius: 5px 0 0 0;
+		  -moz-border-radius: 5px 0 0 0;
+		  border-radius: 5px 0 0 0;
+		  -moz-box-shadow: 0 2px 2px rgba(0,0,0,.4);
+		  -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.4);
+		  box-shadow: 0 2px 2px rgba(0,0,0,.4);
+		}
+
+		#tabs a:hover,
+		#tabs a:hover::after,
+		#tabs a:focus,
+		#tabs a:focus::after {
+		  background: #fff;
+		}
+
+		#tabs a:focus {
+		  outline: 0;
+		}
+
+		#tabs a::after {
+		  content:'';
+		  position:absolute;
+		  z-index: 1;
+		  top: 0;
+		  right: -.5em;  
+		  bottom: 0;
+		  width: 1em;
+		  background: #ddd;
+		  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+		  background-image: -webkit-linear-gradient(top, #fff, #ddd);
+		  background-image: -moz-linear-gradient(top, #fff, #ddd);
+		  background-image: -ms-linear-gradient(top, #fff, #ddd);
+		  background-image: -o-linear-gradient(top, #fff, #ddd);
+		  background-image: linear-gradient(to bottom, #fff, #ddd);  
+		  -moz-box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+		  -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+		  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+		  -webkit-transform: skew(15deg);
+		  -moz-transform: skew(15deg);
+		  -ms-transform: skew(15deg);
+		  -o-transform: skew(15deg);
+		  transform: skew(15deg);
+		  -webkit-border-radius: 0 5px 0 0;
+		  -moz-border-radius: 0 5px 0 0;
+		  border-radius: 0 5px 0 0;  
+		}
+
+		#tabs #current a {
+		  background: #fff;
+		  z-index: 3;
+		} 
+
+		#tabs #current a::after {
+		  background: #fff;
+		  z-index: 3;
+		}
+
+		/* ------------------------------------------------- */
+
+		#content {
+			max-width:700px;
+			background: #fff;
+			padding: 2em;
+			position: relative;
+			z-index: 2;	
+			-moz-border-radius: 0 5px 5px 5px;
+			-webkit-border-radius: 0 5px 5px 5px;
+			border-radius: 0 5px 5px 5px;
+			-moz-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+			-webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+			box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+		}
+
+		/* ------------------------------------------------- */
+
+		#about {
+			color: #999;
+		}
+
+		#about a {
+			color: #eee;
+		}
+
+		label {
+			box-sizing: border-box;
+			display: inline-block;
+			height: 57px;
+			text-size-adjust: 100%;
+			perspective-origin: 70.25px 28.5px;
+			transform-origin: 70.25px 28.5px;
+			font: normal normal 500 normal 16px / 19.2px Gordita, Avenir, Futura, Arial, Helvetica, sans-serif;
+			padding: 0px 16px 0px 0px;
+		}
+
+		label:after {
+			text-size-adjust: 100%;
+			font: normal normal 500 normal 16px / 19.2px Gordita, Avenir, Futura, Arial, Helvetica, sans-serif;
+		}
+
+		label:before {
+			text-size-adjust: 100%;
+			font: normal normal 500 normal 16px / 19.2px Gordita, Avenir, Futura, Arial, Helvetica, sans-serif;
+		}
+		
+		input {
+			text-align: right;
+			text-size-adjust: 100%;
+			vertical-align: middle;
+			max-width:211px;
+			perspective-origin: 105.375px 18.6875px;
+			transform-origin: 105.383px 18.6875px;
+			background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
+			border-top: 1px solid rgba(0, 0, 0, 0);
+			border-right: 1px solid rgba(0, 0, 0, 0);
+			border-bottom: 1px solid rgb(0, 0, 0);
+			border-left: 1px solid rgba(0, 0, 0, 0);
+			font: normal normal 400 normal 16px / 21.6px Gordita, Avenir, Futura, Arial, Helvetica, sans-serif;
+			padding: 7.2px;
+		}
+
+		input:after {
+			text-align: right;
+			text-size-adjust: 100%;
+			font: normal normal 400 normal 16px / 21.6px Gordita, Avenir, Futura, Arial, Helvetica, sans-serif;
+		}
+
+		input:before {
+			text-align: right;
+			text-size-adjust: 100%;
+			font: normal normal 400 normal 16px / 21.6px Gordita, Avenir, Futura, Arial, Helvetica, sans-serif;
+		}
+		
+		input:focus, input.focus, input:active, input.active {
+			outline: 0 none;
+			text-align: right;
+			text-size-adjust: 100%;
+			vertical-align: middle;
+			perspective-origin: 105.375px 18.6875px;
+			transform-origin: 105.383px 18.6875px;
+			background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
+			border-color: transparent !important;
+			border-bottom: 2px solid #00b5d6 !important;
+			margin-bottom: -1px;
+			box-shadow: none;
+			font: normal normal 400 normal 16px / 21.6px Gordita, Avenir, Futura, Arial, Helvetica, sans-serif;
+			padding: 7.2px;
+		}
+		
+		#tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after {
+			background: #00b5d6;
+			color: white;
+		}
+		
+		#current a:hover, #current a:hover::after, #current a:focus, #current a:focus::after{
+			color: black;
+		}
+		.reward{
+			font-weight: bolder;
+			font-size:large;
+			color:goldenrod;
+		}
+		.rewardval{
+			font-weight:bolder;
+			font-size:large;
+			color:green;
+		}
+		</style>
+		<ul id="tabs">
+			<li id=""><a href="#" name="tab1">Buying a home</a></li>
+			<li id=""><a href="#" name="tab2">Renewing</a></li>
+			<li id=""><a href="#" name="tab3">Refinancing</a></li>
+		</ul>
+		<div id="content"> 
+			<div id="tab1" style="display: none;">
+				<table>
+					<tr>
+						<td><label>Mortgage Loan Amount: </label></td>
+						<td><input class="" onkeyup="checkcashreward(this.value , 1)"  pattern="[0-9]*"></td>
+					</tr>
+					<tr>
+						<td><label class='reward'> Cash Reward : </label></td>
+						<td><input class="rewardval" id='cashreward1' pattern="[0-9]*" readonly></td>
+					</tr>
+				</table>
+			</div>
+			<div id="tab2" style="display: none;">
+				<table>
+					<tr>
+						<td><label>Mortgage Loan Amount: </label></td>
+						<td><input class="" onkeyup="checkcashreward(this.value , 2)"  pattern="[0-9]*"></td>
+					</tr>
+					<tr>
+						<td><label class='reward'> Cash Reward : </label></td>
+						<td><input class="rewardval" id='cashreward2' pattern="[0-9]*" readonly></td>
+					</tr>
+				</table>				
+			</div>
+			<div id="tab3" style="display: none;">
+				<table>
+					<tr>
+						<td><label>Home Market Value : </label></td>
+						<td><input class="" id='hmvalue' onkeyup="checkcashreward(this.value , 3)" pattern="[0-9]*"></td>
+					</tr>
+					<tr>
+						<td><label>1st Mortgage Balance : </label></td>
+						<td><input class="" id='mbal' onkeyup="checkcashreward(this.value , 3)" pattern="[0-9]*"></td>
+					</tr>
+					<tr>
+						<td><label>Refinance Amount :</label></td>
+						<td><input class="" id='refamnt' pattern="[0-9]*" readonly></td>
+					</tr>
+					<tr>
+						<td><label>Cash Available : </label></td>
+						<td><input class="" id='hequity' pattern="[0-9]*" readonly><span> ( Cash Available based on 80% )</span></td>
+					</tr>
+					<tr>
+						<td><label class='reward'> Cash Reward : </label></td>
+						<td><b><input class="rewardval" id='cashreward3' pattern="[0-9]*" readonly></b></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<br><br>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function() {
+			$("#content").find("[id^='tab']").hide(); // Hide all content
+			$("#tabs li:first").attr("id","current"); // Activate the first tab
+			$("#content #tab1").fadeIn(); // Show first tab's content
+			
+			$('#tabs a').click(function(e) {
+				e.preventDefault();
+				if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
+				 return;       
+				}
+				else{             
+				  $("#content").find("[id^='tab']").hide(); // Hide all content
+				  $("#tabs li").attr("id",""); //Reset id's
+				  $(this).parent().attr("id","current"); // Activate this
+				  $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
+				}
+			});
+		});
+		</script>
+		<script>
+			function checkcashreward(price, id){
+				if(id == 3){
+					var hmval = $("#hmvalue").val();
+					var mbal = $("#mbal").val();
+					if(mbal != '' && hmval != ''){
+						var hval = (hmval*80)/100;
+						$("#refamnt").val( hval.toFixed(2));
+						var hequity = hval-mbal;
+						$("#hequity").val( hequity.toFixed(2));
+						var cashprice = ( hval * 0.50 )/ 100;
+						$("#cashreward"+id).val(cashprice.toFixed(2));
+					}
+				}else{
+					var cashprice = ( price * 0.50 )/ 100;
+					$("#cashreward"+id).val(cashprice.toFixed(2));
+				}
+			}
+		</script>
